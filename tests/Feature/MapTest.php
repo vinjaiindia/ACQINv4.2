@@ -8,7 +8,7 @@ use Tests\TestCase;
 class MapTest extends TestCase
 {
     /**
-     * A basic test example.
+     * A basic Feature test for testing console app with Road Type = urban & Road Length
      *
      * @return void
      */
@@ -22,6 +22,11 @@ class MapTest extends TestCase
                 ->assertExitCode(0);
         
     }
+    /**
+     * A basic Feature test for testing console app with Road Type = rural & Road Length
+     *
+     * @return void
+     */
 
     public function testRural()
     {

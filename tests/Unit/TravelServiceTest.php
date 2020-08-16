@@ -7,7 +7,7 @@ use PHPUnit\Framework\TestCase;
 class TravelServiceTest extends TestCase
 {
     /**
-     * A basic unit test example.
+     * A basic unit test for testing TravelService with Urban Road
      *
      * @return void
      */
@@ -31,6 +31,12 @@ class TravelServiceTest extends TestCase
         }
         $this->assertTrue(false);
     }
+    /**
+     * A basic unit test for testing TravelService with Rural Road
+     *
+     * @return void
+     */
+
     public function testRuralService()
     {
 
