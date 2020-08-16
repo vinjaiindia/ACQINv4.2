@@ -17,13 +17,12 @@ class Map
         $road_length            = $arr_option_values["road_length"];
         
         $vehicle = new App\Model\Car;
-        $vehicle->set_distance($road_length);
         
         $via    = App\Model\RoadFactory::create($road_type);
         if($via != null )
         {
             $travel = new App\Service\TravelService;
-            return $travel->travel($vehicle, $via);
+            return $travel->travel($vehicle, $via, $road_length);
         }
         else
         {
