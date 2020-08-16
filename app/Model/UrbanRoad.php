@@ -22,7 +22,7 @@ class UrbanRoad extends Road implements IRoadRange,IGarageDistance
         return 20;
     }
 
-    public function get_speed_limit(Car $vehicle)
+    public function get_speed_limit(Vehicle $vehicle)
     {
         return $vehicle->max_speed_limit * 0.75;
     }    

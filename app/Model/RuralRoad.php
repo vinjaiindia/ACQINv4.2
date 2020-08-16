@@ -19,7 +19,7 @@ class RuralRoad extends Road implements IRoadRange
         return 50;
     }
 
-    public function get_speed_limit(Car $vehicle)
+    public function get_speed_limit(Vehicle $vehicle)
     {
         return $vehicle->max_speed_limit * 1.15;
     }

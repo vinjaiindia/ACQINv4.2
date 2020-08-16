@@ -11,25 +11,45 @@ class TravelServiceTest extends TestCase
      *
      * @return void
      */
-    public function testService()
+    public function testUrbanService()
     {
 
         $road_type              = "urban";
         $road_length            = 900;
         
         $vehicle = new \App\Model\Car;
-        $vehicle->set_distance($road_length);
         
         $via    = \App\Model\RoadFactory::create($road_type);
         if($via != null )
         {
             $travel = new \App\Service\TravelService;
-            $result = $travel->travel($vehicle, $via);
-            $this->assertTrue($result["Total Time (Hrs)"] == 21.67);
-            $this->assertTrue($result["Total Distance (KM)"] == 980);
-            $this->assertTrue($result["Refueled Count"] == 6);
+            $result = $travel->travel($vehicle, $via, $road_length);
+            $this->assertTrue($result["total_time"] == 21.85);
+            $this->assertTrue($result["total_distance"] == 980);
+            $this->assertTrue($result["refuel_count"] == 6);
             return;
         }
         $this->assertTrue(false);
     }
+    public function testRuralService()
+    {
+
+        $road_type              = "rural";
+        $road_length            = 900;
+        
+        $vehicle = new \App\Model\Car;
+        
+        $via    = \App\Model\RoadFactory::create($road_type);
+        if($via != null )
+        {
+            $travel = new \App\Service\TravelService;
+            $result = $travel->travel($vehicle, $via, $road_length);
+            $this->assertTrue($result["total_time"] == 15);
+            $this->assertTrue($result["total_distance"] == 1000);
+            $this->assertTrue($result["refuel_count"] == 5);
+            return;
+        }
+        $this->assertTrue(false);
+    }
+
 }
